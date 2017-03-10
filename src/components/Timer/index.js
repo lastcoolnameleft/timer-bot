@@ -17,7 +17,7 @@ export default class Timer extends Component {
     this.state = {
       name: this.props.params.name,
       buttonLabel: 'StartTimer',
-      ago: ''
+      duration: ''
     };
 
     this.handleClick = this.handleClick.bind(this);
@@ -64,19 +64,22 @@ export default class Timer extends Component {
           self.setState({
             name: '',
             buttonLabel: 'StartTimer',
-            ago: '',
+            duration: '',
             start: '',
+            stop: '',
           });
         } else {
-          const start_timestamp = data.start_timestamp;
-          console.log('Found existing timer.' + start_timestamp);
-          const ago = moment.unix(start_timestamp).fromNow();
-          const start = moment.unix(start_timestamp).toISOString();
+          console.log('Found existing timer.');
+          const start = moment.unix(data.start_timestamp).toISOString();
+          const stop = data.stop_timestamp ? moment.unix(data.stop_timestamp).toISOString() : '';
+          const duration = data.start_timestamp && data.stop_timestamp
+            ? moment.duration(data.stop_timestamp - data.start_timestamp, "seconds").humanize(true) : '';
           self.setState({
             name: data.name,
             buttonLabel: 'StopTimer',
-            ago,
+            duration,
             start,
+            stop,
           });
 
         }
@@ -100,7 +103,8 @@ export default class Timer extends Component {
             <tbody>
               <tr><td>Timer Name:</td><td>{this.state.name}</td></tr>
               <tr><td>Start Time:</td><td>{this.state.start}</td></tr>
-              <tr><td>Ago:</td><td>{this.state.ago}</td></tr>
+              <tr><td>Stop Time:</td><td>{this.state.stop}</td></tr>
+              <tr><td>Duration:</td><td>{this.state.duration}</td></tr>
             </tbody>
           </table>
           <br />
