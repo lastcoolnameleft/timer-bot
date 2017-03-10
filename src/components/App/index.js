@@ -11,9 +11,9 @@ class App extends Component {
   // state = {}
 
   render() {
-    const { className, ...props } = this.props;
+    const { className } = this.props;
     return (
-      <div className={classnames('App', className)} {...props}>
+      <div className={classnames('App', className)}>
         <div className="App-header">
           <h2>Welcome to Uber-Timer</h2>
         </div>
