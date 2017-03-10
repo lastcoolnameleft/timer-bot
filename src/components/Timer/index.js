@@ -13,7 +13,6 @@ const findTimerUrl = `${baseTimerUrl}timer/`;
 export default class Timer extends Component {
   constructor(props) {
     super(props);
-    console.log(this.props);
     this.state = {
       name: this.props.params.name,
       buttonLabel: 'StartTimer',
@@ -47,15 +46,8 @@ export default class Timer extends Component {
   fetchTimer(self, name) {
     const url = findTimerUrl + name;
     console.log(`fetching ${url}`);
-    const options = {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      credentials: 'same-origin',
-    };
 
-    fetch(url, options)
+    fetch(url, timerLib.getTimerRequestInfo('GetTimer', name))
       .then(timerLib.checkStatus)
       .then(timerLib.parseJSON)
       .then((data) => {
@@ -90,7 +82,6 @@ export default class Timer extends Component {
   }
 
   render() {
-    //const { className, ...props } = this.props;
     const { className } = this.props;
 
     return (
@@ -117,19 +108,4 @@ export default class Timer extends Component {
       </div>
     );
   }
-  
-/*
-  render() {
-    console.log(this.props);
-    const { className, ...props } = this.props;
-    console.log(props);
-    return (
-      <div className={classnames('Timer', className)} >
-        <h1>
-         Timer { props.params.name }
-        </h1>
-      </div>
-    );
-  }
-  */
 }

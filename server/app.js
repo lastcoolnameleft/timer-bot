@@ -16,11 +16,11 @@ app.use(morgan(':remote-addr - :remote-user [:date[clf]] ":method :url HTTP/:htt
 app.use(express.static(path.resolve(__dirname, '..', 'build')));
 
 // Always return the main index.html, so react-router render the route in the client
-app.get('/api/timer/stop/:name', (req, res) => {
+app.delete('/api/timer/:name', (req, res) => {
   res.send(JSON.stringify(timer.stop(req.params.name)));
 });
 
-app.get('/api/timer/start/:name', (req, res) => {
+app.post('/api/timer/:name', (req, res) => {
   res.send(JSON.stringify(timer.start(req.params.name)));
 });
 
