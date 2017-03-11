@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "botbuilder": "^3.7.0",
     "classnames": "^2.2.5",
     "cors": "^2.8.1",
     "express": "^4.15.2",

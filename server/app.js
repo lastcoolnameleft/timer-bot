@@ -3,6 +3,7 @@ const express = require('express');
 const morgan = require('morgan');
 const path = require('path');
 const cors = require('cors');
+const builder = require('botbuilder');
 
 const app = express();
 app.use(cors());
@@ -27,6 +28,19 @@ app.post('/api/timer/:name', (req, res) => {
 app.get('/api/timer/:name', (req, res) => {
   res.send(JSON.stringify(timer.get(req.params.name)));
 });
+
+// MSFT Bot Connector
+var dialogs = require('./bot/dialogs');
+
+var connector = new builder.ChatConnector({
+    appId: process.env.MICROSOFT_APP_ID,
+    appPassword: process.env.MICROSOFT_APP_PASSWORD
+});
+var bot = new builder.UniversalBot(connector);
+
+dialogs.bind(bot);
+app.post('/api/messages', connector.listen());
+
 
 app.get('*', (req, res) => {
   res.sendFile(path.resolve(__dirname, '..', 'build', 'index.html'));
