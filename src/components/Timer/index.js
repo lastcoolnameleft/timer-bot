@@ -6,9 +6,7 @@ import moment from 'moment';
 
 import './style.css';
 import timerLib from '../../lib/core.js';
-const baseTimerUrl = 'http://localhost:9000/api/';
-//const getTimerUrl = `${baseTimerUrl}timer/get`;
-const findTimerUrl = `${baseTimerUrl}timer/`;
+const findTimerUrl = `/api/timer/`;
 
 export default class Timer extends Component {
   constructor(props) {

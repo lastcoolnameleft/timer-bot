@@ -22,6 +22,7 @@ function bind(bot) {
 
 	intents.onDefault(session => {
 			session.send(`Welcome to the Timer Bot 2000!`);
+			session.send(`Available commands:\n - Type *start timer sample* to start a sample timer.\n - Type *start timer* to have the bot prompt for more info.\n - Type *stop timer* to stop the timer.`);
 			session.beginDialog('/loop');
 		}
 	);
@@ -31,8 +32,7 @@ function bind(bot) {
 
 		// ask for input
 		session => {
-			builder.Prompts.text(session, `Start your timer by typing:`);
-			builder.Prompts.text(session, `"start timer" or "start timer mytimer"`);
+			builder.Prompts.text(session, `How can I help?`);
 		},
 
 		// get text, call LUIS to extract intent and entities, 
