@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "botbuilder": "^3.7.0",
+    "botframework-webchat": "^0.10.2",
     "classnames": "^2.2.5",
     "cors": "^2.8.1",
     "express": "^4.15.2",

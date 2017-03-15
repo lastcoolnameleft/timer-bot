@@ -20,6 +20,9 @@ class App extends Component {
         <p className="App-intro">
             <a href='/timer/sample'>Create Timer</a>
         </p>
+        <p className="App-intro">
+            <a href='/bot'>Use Bot</a>
+        </p>
       </div>
     );
   }

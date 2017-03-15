@@ -1,0 +1,19 @@
+{
+	"intents": {
+		"StartTimer": ["Name"],
+		"StopTimer": ["Name"],
+		"GetTimer": ["Name"],
+		"GetAllTimers": [],
+		"Search": ["SearchTerm"]
+	},
+	"fields": {
+			"Name": {
+				"type": "text",
+				"prompt": "Which timer?"
+			},
+			"SearchTerm": {
+				"type": "text",
+				"prompt": "Which timer do you want to search for?"
+			}
+	}
+}

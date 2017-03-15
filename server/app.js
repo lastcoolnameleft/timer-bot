@@ -8,7 +8,7 @@ const builder = require('botbuilder');
 const app = express();
 app.use(cors());
 
-const timer = require('./timer');
+const timer = require('../src/timer');
 
 // Setup logger
 app.use(morgan(':remote-addr - :remote-user [:date[clf]] ":method :url HTTP/:http-version" :status :res[content-length] :response-time ms'));
@@ -30,7 +30,7 @@ app.get('/api/timer/:name', (req, res) => {
 });
 
 // MSFT Bot Connector
-var dialogs = require('./bot/dialogs');
+var dialogs = require('../src/bot/dialogs');
 
 var connector = new builder.ChatConnector({
     appId: process.env.MICROSOFT_APP_ID,
