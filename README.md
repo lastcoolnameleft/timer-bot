@@ -1,31 +1,47 @@
 # Main
 
-This project is to demonstrate interacting with a user via both the Microsoft Bot Framework and via a UI using common code.
+This project demonstrates providing multiple options for a user to interact with a service using common code.  In this example, the user can start and stop a named timer using either Microsoft Bot Framework or a UI (React).
 
-In this example, a user can start and stop a timer either through a UI or through a chatbot that will ask all of the necessary questions until all of the required fields are submitted.
+In addition, if the bot does not have enough information about the timer (e.g. the timer name), it will prompt the user for more information, until all of the required files are provided.
+
 
 # Foundation
-* Bootstrap: [Create React App](https://github.com/facebookincubator/create-react-app).
-* Add Express Routing: [React Router + Express](https://medium.com/@patriciolpezjuri/using-create-react-app-with-react-router-express-js-8fa658bf892d#.73wm0a32s)
+
+This project combines the following technologies:
 * [Microsoft Bot Framework](https://dev.botframework.com/)
-
-# Install
-
-```
-yarn install
-```
+* [Bot Framework WebChat](https://github.com/Microsoft/BotFramework-WebChat)
+* [Ngrok](https://ngrok.com/)
+* [Language Understanding Intelligent Service](https://www.luis.ai/)
+* [Create React App](https://github.com/facebookincubator/create-react-app)
+* [React Router + Express](https://medium.com/@patriciolpezjuri/using-create-react-app-with-react-router-express-js-8fa658bf892d#.73wm0a32s)
 
 # Development
 
-In two separate windows:
+In separate windows:
+
+*Start Yarn*
 ```
+yarn install
 yarn start
 ```
 
+*Start Ngrok*
+```
+ngrok http 9000
+```
+
+*Start service*
 ```
 export MICROSOFT_APP_ID=<BOT ID>
 export MICROSOFT_APP_PASSWORD=<BOT PASSWORD>
 export LUIS_ENDPOINT_URL=<LUIS URL>
-nodemon server
+export BASE_TIMER_URL=<ngrok URL> + '/api/timer' (e.g. https://13fa9ed1.ngrok.io/api/timer/)
+node server
 ```
 
+# Docker
+
+Assuming you have all of the env vars set, you can run the package, locally in docker as such:
+```
+docker run --rm -tp 9000:80 -e MICROSOFT_APP_ID=$MICROSOFT_APP_ID -e MICROSOFT_APP_PASSWORD=$MICROSOFT_APP_PASSWORD -e LUIS_ENDPOINT_URL=$LUIS_ENDPOINT_URL -e BASE_TIMER_URL=$BASE_TIMER_URL -e PORT=80 lastcoolnameleft/timer-bot-ui
+```
