@@ -6,7 +6,7 @@ var luisEndpoint = process.env.LUIS_ENDPOINT_URL;
 
 var luisUrlTemplate = `${luisEndpoint}&q=%s`;
 
-var baseTimerUrl = process.env.BASE_TIMER_URL;
+var baseTimerUrl = process.env.BASE_TIMER_URL || '/api/timer/';
 
 const timerLib = {
   getTimerRequestInfo: (action, name) => {
