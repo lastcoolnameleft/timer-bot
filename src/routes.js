@@ -14,6 +14,7 @@ const Routes = (props) => (
     <Route path="/about" component={About} />
     <Route path="/bot" component={Bot} />
     <Route path="/timer/:name" component={Timer} />
+    <Route path="/timer/" component={Timer} />
     <Route path="*" component={NotFound} />
   </Router>
 );

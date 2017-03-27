@@ -9,6 +9,7 @@ const timer = {
         storage[name] = {
             name,
             start_timestamp: Date.now() / 1000 | 0,
+            url: '/api/timer/' + name,
         };
         return storage[name];
     },

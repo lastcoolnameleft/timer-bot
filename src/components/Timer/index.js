@@ -14,16 +14,22 @@ export default class Timer extends Component {
     this.state = {
       name: this.props.params.name,
       buttonLabel: 'StartTimer',
-      duration: ''
+      duration: '',
+      url: ''
     };
 
     this.handleClick = this.handleClick.bind(this);
+    this.handleNameChange = this.handleNameChange.bind(this);
     this.fetchTimer = this.fetchTimer.bind(this);
     this.fetchTimer(this, this.state.name);
   }
 
   handleFech(data) {
     this.setState({ name: data.name });
+  }
+
+  handleNameChange(event) {
+    this.setState({name: event.target.value});
   }
 
   handleClick = () => {
@@ -57,6 +63,7 @@ export default class Timer extends Component {
             duration: '',
             start: '',
             stop: '',
+            url: '',
           });
         } else {
           console.log('Found existing timer.');
@@ -70,6 +77,7 @@ export default class Timer extends Component {
             duration,
             start,
             stop,
+            url,
           });
 
         }
@@ -90,10 +98,12 @@ export default class Timer extends Component {
         <div>
           <table>
             <tbody>
-              <tr><td>Timer Name:</td><td>{this.state.name}</td></tr>
+              <tr><td>Timer Name:</td>
+                  <td><input type="text" value={this.state.name} onChange={this.handleNameChange} /></td></tr>
               <tr><td>Start Time:</td><td>{this.state.start}</td></tr>
               <tr><td>Stop Time:</td><td>{this.state.stop}</td></tr>
               <tr><td>Duration:</td><td>{this.state.duration}</td></tr>
+              <tr><td>URL:</td><td>{this.state.url}</td></tr>
             </tbody>
           </table>
           <br />

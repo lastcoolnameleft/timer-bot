@@ -12,7 +12,7 @@ class App extends Component {
           <h2>Welcome to Uber-Timer</h2>
         </div>
         <p className="App-intro">
-            <a href='/timer/sample'>Create Timer</a>
+            <a href='/timer/'>Create Timer</a>
         </p>
         <p className="App-intro">
             <a href='/bot'>Use Bot</a>
