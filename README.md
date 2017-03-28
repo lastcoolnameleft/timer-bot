@@ -14,6 +14,16 @@ This project combines the following technologies:
 * [Language Understanding Intelligent Service](https://www.luis.ai/)
 * [Create React App](https://github.com/facebookincubator/create-react-app)
 * [React Router + Express](https://medium.com/@patriciolpezjuri/using-create-react-app-with-react-router-express-js-8fa658bf892d#.73wm0a32s)
+* [bot-luis-form](https://github.com/CatalystCode/bot-luis-form)
+
+# Directory structure
+
+* /public - Web site entry point
+* /server - Express.js server setup
+* /src/bot - LUIS Form code
+* /src/component - React Components
+* /src/lib - The shared code that the Bot Framework and the UI utilize
+* /src/* - Misc Express route code
 
 # Development
 
