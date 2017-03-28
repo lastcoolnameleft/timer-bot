@@ -1,8 +1,8 @@
 {
 	"intents": {
-		"StartTimer": ["Name"],
-		"StopTimer": ["Name"],
-		"GetTimer": ["Name"],
+		"StartTimer": ["Timer"],
+		"StopTimer": ["Timer"],
+		"GetTimer": ["Timer"],
 		"GetAllTimers": [],
 		"Search": ["SearchTerm"]
 	},

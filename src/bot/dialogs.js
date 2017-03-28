@@ -6,9 +6,10 @@ var fetch = require('node-fetch');
 var intentForms = require('./intentForms');
 var luis = require('./luis');
 var timerLib = require('../../src/lib/core.js');
+var config = require('../../src/config.js');
 
 // TODO:  Stub this
-const baseTimerUrl = timerLib.TIMER_URL;
+const baseTimerUrl = config.base_url + 'api/';
 const getTimerUrl = `${baseTimerUrl}timers/get`;
 const findTimerUrl = `${baseTimerUrl}timers/find?client=`;
 const startTimerUrl = `${baseTimerUrl}timers/start`;
@@ -114,8 +115,12 @@ function bind(bot) {
 
 		// prompt for field value
 		(session, args, next) => {
+			console.log('args=');
+			console.log(args);
 
 			const form = args.form;
+			console.log('form=');
+			console.log(form);
 			if (!form) throw new Error('form array was not provided');
 			session.dialogData.form = form;
 			
@@ -130,12 +135,15 @@ function bind(bot) {
 
 					console.log(`getting type: ${field.type}`);
 					var promptType = builder.Prompts[field.type] ? field.type : 'text';
+					console.log(`prompttype: ${promptType}`);
 
 					var options = field.type === 'choice' ?
 							field.options.map(option => option.title).join('|') 
 							: null;
+					console.log(`options: ${options}`);
 					
 					// prompt for value for this field
+
 					return builder.Prompts[promptType](session, field.prompt, options);
 				}
 			}

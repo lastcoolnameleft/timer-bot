@@ -1,9 +1,9 @@
 var request = require('request-promise');
 var util = require('util');
+var config = require('../config.js');
 
 // replace LUIS endpoint with your own
-var luisEndpoint = process.env.LUIS_ENDPOINT_URL;
-
+var luisEndpoint = config.luis_url;
 var luisUrlTemplate = `${luisEndpoint}&q=%s`;
 
 function query(text) {

@@ -1,12 +1,13 @@
 var util = require('util');
 var request = require('request-promise');
+var config = require('../config.js');
 
 // replace LUIS endpoint with your own
-var luisEndpoint = process.env.LUIS_ENDPOINT_URL;
-
+console.log(config);
+var luisEndpoint = config.luis_url;
 var luisUrlTemplate = `${luisEndpoint}&q=%s`;
 
-var baseTimerUrl = process.env.BASE_TIMER_URL || '/api/timer/';
+var baseTimerUrl = config.base_url + 'api/timer/';
 
 const timerLib = {
   getTimerRequestInfo: (action, name) => {
