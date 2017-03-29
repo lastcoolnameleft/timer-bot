@@ -1,6 +1,6 @@
 # Main
 
-This project demonstrates providing multiple options for a user to interact with a service using common code.  In this example, the user can start and stop a named timer using either Microsoft Bot Framework or a UI (React).
+This project demonstrates a framework for allowing a team to interact with a common service using shared code.  In this example, the user can start and stop a named timer using either Microsoft Bot Framework or a UI (React).
 
 In addition, if the bot does not have enough information about the timer (e.g. the timer name), it will prompt the user for more information, until all of the required files are provided.
 
@@ -24,6 +24,8 @@ This project combines the following technologies:
 * /src/component - React Components
 * /src/lib - The shared code that the Bot Framework and the UI utilize
 * /src/* - Misc Express route code
+
+This dir structure is mainly an artifact of the projects used to bootstrap this project.
 
 # Development
 
