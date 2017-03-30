@@ -1,44 +1,540 @@
 {
   "luis_schema_version": "2.0.0",
   "versionId": "0.1",
-  "name": "Timer-Bot",
-  "desc": "",
+  "name": "wk-search-bot",
+  "desc": "Axcess universal search for semantic search on entities and commands",
   "culture": "en-us",
   "intents": [
+    {
+      "name": "GetAllTimers"
+    },
+    {
+      "name": "GetTimer"
+    },
     {
       "name": "None"
     },
     {
+      "name": "Search"
+    },
+    {
       "name": "StartTimer"
+    },
+    {
+      "name": "StopTimer"
     }
   ],
   "entities": [
     {
-      "name": "timer"
+      "name": "Name"
+    },
+    {
+      "name": "SearchTerm"
     }
   ],
   "composites": [],
   "closedLists": [],
   "bing_entities": [],
-  "actions": [],
+  "actions": [
+    {
+      "actionName": "Search",
+      "intentName": "Search",
+      "channel": null,
+      "actionParameters": [
+        {
+          "parameterName": "SearchTerm",
+          "entityName": "SearchTerm",
+          "required": true,
+          "question": "What would you like to search for?",
+          "phraseListFeatureName": null
+        }
+      ]
+    }
+  ],
   "model_features": [],
   "regex_features": [],
   "utterances": [
+    {
+      "text": "kill ira-check",
+      "intent": "None",
+      "entities": [
+        {
+          "entity": "Name",
+          "startPos": 5,
+          "endPos": 13
+        }
+      ]
+    },
     {
       "text": "start timer",
       "intent": "StartTimer",
       "entities": []
     },
     {
-      "text": "start timer foo",
+      "text": "start a timer for katherine",
       "intent": "StartTimer",
       "entities": [
         {
-          "entity": "timer",
-          "startPos": 12,
+          "entity": "Name",
+          "startPos": 18,
+          "endPos": 26
+        }
+      ]
+    },
+    {
+      "text": "start ava's timer",
+      "intent": "StartTimer",
+      "entities": [
+        {
+          "entity": "Name",
+          "startPos": 6,
+          "endPos": 8
+        }
+      ]
+    },
+    {
+      "text": "create a timer for sally",
+      "intent": "StartTimer",
+      "entities": [
+        {
+          "entity": "Name",
+          "startPos": 19,
+          "endPos": 23
+        }
+      ]
+    },
+    {
+      "text": "start a timer for michael",
+      "intent": "StartTimer",
+      "entities": [
+        {
+          "entity": "Name",
+          "startPos": 18,
+          "endPos": 24
+        }
+      ]
+    },
+    {
+      "text": "add timer for chris",
+      "intent": "StartTimer",
+      "entities": [
+        {
+          "entity": "Name",
+          "startPos": 14,
+          "endPos": 18
+        }
+      ]
+    },
+    {
+      "text": "add a timer",
+      "intent": "StartTimer",
+      "entities": []
+    },
+    {
+      "text": "start a timer for amy",
+      "intent": "StartTimer",
+      "entities": [
+        {
+          "entity": "Name",
+          "startPos": 18,
+          "endPos": 20
+        }
+      ]
+    },
+    {
+      "text": "start katherine's timer",
+      "intent": "StartTimer",
+      "entities": [
+        {
+          "entity": "Name",
+          "startPos": 6,
           "endPos": 14
         }
       ]
+    },
+    {
+      "text": "start timer for gaurav",
+      "intent": "StartTimer",
+      "entities": [
+        {
+          "entity": "Name",
+          "startPos": 16,
+          "endPos": 21
+        }
+      ]
+    },
+    {
+      "text": "start a timer for gaurav",
+      "intent": "StartTimer",
+      "entities": [
+        {
+          "entity": "Name",
+          "startPos": 18,
+          "endPos": 23
+        }
+      ]
+    },
+    {
+      "text": "start a timer for abc",
+      "intent": "StartTimer",
+      "entities": [
+        {
+          "entity": "Name",
+          "startPos": 18,
+          "endPos": 20
+        }
+      ]
+    },
+    {
+      "text": "add a new timer for tom",
+      "intent": "StartTimer",
+      "entities": [
+        {
+          "entity": "Name",
+          "startPos": 20,
+          "endPos": 22
+        }
+      ]
+    },
+    {
+      "text": "start a timer",
+      "intent": "StartTimer",
+      "entities": []
+    },
+    {
+      "text": "create timer",
+      "intent": "StartTimer",
+      "entities": []
+    },
+    {
+      "text": "create a timer for james",
+      "intent": "StartTimer",
+      "entities": [
+        {
+          "entity": "Name",
+          "startPos": 19,
+          "endPos": 23
+        }
+      ]
+    },
+    {
+      "text": "start timer for jason pagel",
+      "intent": "StartTimer",
+      "entities": [
+        {
+          "entity": "Name",
+          "startPos": 16,
+          "endPos": 26
+        }
+      ]
+    },
+    {
+      "text": "please create me a timer",
+      "intent": "StartTimer",
+      "entities": []
+    },
+    {
+      "text": "start a timer for bill",
+      "intent": "StartTimer",
+      "entities": [
+        {
+          "entity": "Name",
+          "startPos": 18,
+          "endPos": 21
+        }
+      ]
+    },
+    {
+      "text": "please make me a timer for bhala",
+      "intent": "StartTimer",
+      "entities": [
+        {
+          "entity": "Name",
+          "startPos": 27,
+          "endPos": 31
+        }
+      ]
+    },
+    {
+      "text": "stop katherine's timer",
+      "intent": "StopTimer",
+      "entities": [
+        {
+          "entity": "Name",
+          "startPos": 5,
+          "endPos": 13
+        }
+      ]
+    },
+    {
+      "text": "stop ava's timer",
+      "intent": "StopTimer",
+      "entities": [
+        {
+          "entity": "Name",
+          "startPos": 5,
+          "endPos": 7
+        }
+      ]
+    },
+    {
+      "text": "end sally's timer",
+      "intent": "StopTimer",
+      "entities": [
+        {
+          "entity": "Name",
+          "startPos": 4,
+          "endPos": 8
+        }
+      ]
+    },
+    {
+      "text": "stop jason's timer",
+      "intent": "StopTimer",
+      "entities": [
+        {
+          "entity": "Name",
+          "startPos": 5,
+          "endPos": 9
+        }
+      ]
+    },
+    {
+      "text": "end timer for sally",
+      "intent": "StopTimer",
+      "entities": [
+        {
+          "entity": "Name",
+          "startPos": 14,
+          "endPos": 18
+        }
+      ]
+    },
+    {
+      "text": "end my timer",
+      "intent": "StopTimer",
+      "entities": []
+    },
+    {
+      "text": "end timer for jessica",
+      "intent": "StopTimer",
+      "entities": [
+        {
+          "entity": "Name",
+          "startPos": 14,
+          "endPos": 20
+        }
+      ]
+    },
+    {
+      "text": "stop bruno's timer",
+      "intent": "StopTimer",
+      "entities": [
+        {
+          "entity": "Name",
+          "startPos": 5,
+          "endPos": 9
+        }
+      ]
+    },
+    {
+      "text": "kill gaurav's timer",
+      "intent": "StopTimer",
+      "entities": [
+        {
+          "entity": "Name",
+          "startPos": 5,
+          "endPos": 10
+        }
+      ]
+    },
+    {
+      "text": "stop timer",
+      "intent": "StopTimer",
+      "entities": []
+    },
+    {
+      "text": "end timer",
+      "intent": "StopTimer",
+      "entities": []
+    },
+    {
+      "text": "kill timer",
+      "intent": "StopTimer",
+      "entities": [
+        {
+          "entity": "Name",
+          "startPos": 5,
+          "endPos": 9
+        }
+      ]
+    },
+    {
+      "text": "search tax returns",
+      "intent": "Search",
+      "entities": [
+        {
+          "entity": "SearchTerm",
+          "startPos": 7,
+          "endPos": 9
+        },
+        {
+          "entity": "SearchTerm",
+          "startPos": 11,
+          "endPos": 17
+        }
+      ]
+    },
+    {
+      "text": "search for tax",
+      "intent": "Search",
+      "entities": [
+        {
+          "entity": "SearchTerm",
+          "startPos": 11,
+          "endPos": 13
+        }
+      ]
+    },
+    {
+      "text": "lookup taxes",
+      "intent": "Search",
+      "entities": [
+        {
+          "entity": "SearchTerm",
+          "startPos": 7,
+          "endPos": 11
+        }
+      ]
+    },
+    {
+      "text": "lookup irs",
+      "intent": "Search",
+      "entities": [
+        {
+          "entity": "SearchTerm",
+          "startPos": 7,
+          "endPos": 9
+        }
+      ]
+    },
+    {
+      "text": "lookup money",
+      "intent": "Search",
+      "entities": [
+        {
+          "entity": "SearchTerm",
+          "startPos": 7,
+          "endPos": 11
+        }
+      ]
+    },
+    {
+      "text": "find alabama",
+      "intent": "Search",
+      "entities": [
+        {
+          "entity": "SearchTerm",
+          "startPos": 5,
+          "endPos": 11
+        }
+      ]
+    },
+    {
+      "text": "find alabama tax laws",
+      "intent": "Search",
+      "entities": [
+        {
+          "entity": "SearchTerm",
+          "startPos": 5,
+          "endPos": 11
+        },
+        {
+          "entity": "SearchTerm",
+          "startPos": 13,
+          "endPos": 15
+        },
+        {
+          "entity": "SearchTerm",
+          "startPos": 17,
+          "endPos": 20
+        }
+      ]
+    },
+    {
+      "text": "find 1040 tax returns",
+      "intent": "Search",
+      "entities": [
+        {
+          "entity": "SearchTerm",
+          "startPos": 5,
+          "endPos": 8
+        },
+        {
+          "entity": "SearchTerm",
+          "startPos": 10,
+          "endPos": 12
+        },
+        {
+          "entity": "SearchTerm",
+          "startPos": 14,
+          "endPos": 20
+        }
+      ]
+    },
+    {
+      "text": "search for xyz",
+      "intent": "Search",
+      "entities": [
+        {
+          "entity": "SearchTerm",
+          "startPos": 11,
+          "endPos": 13
+        }
+      ]
+    },
+    {
+      "text": "get timer bob",
+      "intent": "GetTimer",
+      "entities": [
+        {
+          "entity": "Name",
+          "startPos": 10,
+          "endPos": 12
+        }
+      ]
+    },
+    {
+      "text": "get timer for bob",
+      "intent": "GetTimer",
+      "entities": [
+        {
+          "entity": "Name",
+          "startPos": 14,
+          "endPos": 16
+        }
+      ]
+    },
+    {
+      "text": "get timer for jo",
+      "intent": "GetTimer",
+      "entities": [
+        {
+          "entity": "Name",
+          "startPos": 14,
+          "endPos": 15
+        }
+      ]
+    },
+    {
+      "text": "get all timers",
+      "intent": "GetAllTimers",
+      "entities": []
+    },
+    {
+      "text": "get timers",
+      "intent": "GetAllTimers",
+      "entities": []
     }
   ]
 }
