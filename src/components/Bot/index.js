@@ -10,7 +10,7 @@ export default class Bot extends Component {
     const { className } = this.props;
     return (
       <div className={classnames('Bot', className)} >
-        <Chat directLine={{ secret: 'ugNPVWsQRV8.cwA.C1k.UHWXNwPVMx7hVZo7Zbem9_A8xhDy5SpHO1YBfX7eXjk' }} user={{ id: 'userid', name: 'username' }}/>
+        <Chat directLine={{ secret: 'xxx' }} user={{ id: 'userid', name: 'username' }}/>
       </div>
     );
   }
