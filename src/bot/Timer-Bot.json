@@ -1,0 +1,44 @@
+{
+  "luis_schema_version": "2.0.0",
+  "versionId": "0.1",
+  "name": "Timer-Bot",
+  "desc": "",
+  "culture": "en-us",
+  "intents": [
+    {
+      "name": "None"
+    },
+    {
+      "name": "StartTimer"
+    }
+  ],
+  "entities": [
+    {
+      "name": "timer"
+    }
+  ],
+  "composites": [],
+  "closedLists": [],
+  "bing_entities": [],
+  "actions": [],
+  "model_features": [],
+  "regex_features": [],
+  "utterances": [
+    {
+      "text": "start timer",
+      "intent": "StartTimer",
+      "entities": []
+    },
+    {
+      "text": "start timer foo",
+      "intent": "StartTimer",
+      "entities": [
+        {
+          "entity": "timer",
+          "startPos": 12,
+          "endPos": 14
+        }
+      ]
+    }
+  ]
+}
