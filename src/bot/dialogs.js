@@ -73,21 +73,14 @@ function bind(bot) {
 
 		// get filled-in form and process the request
 		(session, args) => {
-			console.log('session.userData=');
-			console.log(session.userData);
-			console.log('end session.userData');
 			session.userData.form = args.form;
 			session.send('processing request..');
 			const timerRequestInfo = timerLib.getTimerRequestInfo(session.userData.intent, session.userData.form.Name);
-			console.log(timerRequestInfo);
 
 			fetch(timerRequestInfo.url, timerRequestInfo.options)
 			.then(timerLib.checkStatus)
 			.then(res => res.text())
 		    .then(body => { 
-				console.log('body='); 
-				console.log(body); 
-				console.log('end body'); 
 				session.send(`Operation Completed`);
 				session.send(`Result=${body}`);
 			})
@@ -128,7 +121,6 @@ function bind(bot) {
 					// if this was resolved by LUIS, move to the next handler to prcoess the value
 					if (field.luisEntity) return next();
 
-					console.log(`getting type: ${field.type}`);
 					var promptType = builder.Prompts[field.type] ? field.type : 'text';
 
 					var options = field.type === 'choice' ?
@@ -212,7 +204,6 @@ function bind(bot) {
 
 // create an array of the fields to be populated by the user
 function prepareForm(intent) {
-	console.log(`intent = ${intent}`);
 	const form = [];
 	const fields = intentForms.intents[intent];
 	if (!fields) return form;
@@ -223,8 +214,6 @@ function prepareForm(intent) {
 		instance.name = field;
 		form.push(instance);
 	});
-	console.log("prepareForm");
-	console.log(form);
 	return form;
 }
 
