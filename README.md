@@ -4,6 +4,7 @@ This project demonstrates a framework for allowing a team to interact with a com
 
 In addition, if the bot does not have enough information about the timer (e.g. the timer name), it will prompt the user for more information, until all of the required files are provided.
 
+While the majority of this code is used to glue all of the technologies together, it is intended as an application platform that a developer can use to easily integrate other UI/Bot interactions.  It was designed to keep the business logic separate from the presentation logic.
 
 # Foundation
 
