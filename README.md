@@ -2,7 +2,7 @@
 
 This project demonstrates a framework for allowing a team to interact with a common service using shared code.  In this example, the user can start and stop a named timer using either Microsoft Bot Framework or a UI (React).
 
-In addition, if the bot does not have enough information about the timer (e.g. the timer name), it will prompt the user for more information, until all of the required files are provided.
+In addition, if the bot does not have enough information about the timer (e.g. the timer name), it will prompt the user for more information, until all of the required files are provided.  This technology relies on LUIS.AI for parsing the intent and entities from each utterance.
 
 While the majority of this code is used to glue all of the technologies together, it is intended as an application platform that a developer can use to easily integrate other UI/Bot interactions.  It was designed to keep the business logic separate from the presentation logic. (See src/lib/core.js, src/bot/dialogs.js and src/components/Timer/index.js)
 
