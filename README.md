@@ -6,6 +6,8 @@ In addition, if the bot does not have enough information about the timer (e.g. t
 
 While the majority of this code is used to glue all of the technologies together, it is intended as an application platform that a developer can use to easily integrate other UI/Bot interactions.  It was designed to keep the business logic separate from the presentation logic. (See src/lib/core.js, src/bot/dialogs.js and src/components/Timer/index.js)
 
+*But wait, there's more!* This application has a respective Dockerfile which can be used for testing the application locally and deploying remotely with ease.
+
 # Foundation
 
 This project combines the following technologies:
